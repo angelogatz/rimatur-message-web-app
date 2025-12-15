@@ -1,0 +1,55 @@
+services:
+  # 1. Serviço do Banco de Dados (PostgreSQL)
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: chatdb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" # Porta para acesso externo opcional (como PgAdmin)
+
+  # 2. Serviço do Backend (Node.js/Express)
+  server:
+    build: ./server  # Usa o Dockerfile dentro da pasta server
+    container_name: chat_server
+    ports:
+      - "3001:3001"
+    environment:
+      # Conecta ao serviço 'db' pelo nome definido no docker-compose
+      DATABASE_URL: postgresql://postgres:root@db:5432/chat_app_db?schema=public
+      PORT: 3001
+    depends_on:
+      - db # Garante que o banco sobe antes do servidor
+    volumes:
+      - ./server:/app/server # Mapeia o código para hot-reload
+      - /app/server/node_modules # Evita sobrescrever node_modules com o volume local
+
+  web:
+    build: ./web
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./web:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_URL=http://localhost:3001
+
+  # 3. Serviço do Frontend (React/Vite)
+  client:
+    build: ./client  # Usa o Dockerfile dentro da pasta client
+    container_name: chat_client
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app/client
+      - /app/client/node_modules
+    stdin_open: true # Necessário para o Vite funcionar no Docker
+    depends_on:
+      - server # Garante que o servidor sobe antes, para o front poder se conectar
+
+volumes:
+  postgres_data:
