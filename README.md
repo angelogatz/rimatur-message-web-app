@@ -89,5 +89,5 @@ rimatur-chat-app/ ├── server/ # Backend (Node/Express, JWT, Prisma, Socket
 
 ### 🧑‍💻 Autor
 
-[Angelo El Sawy]
+Angelo El Sawy
 * **LinkedIn:** [Conecte-se](https://www.linkedin.com/in/angelo-gatz-29151a200/)
