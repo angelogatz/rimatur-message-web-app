@@ -41,7 +41,7 @@ Certifique-se de ter o [Docker](https://www.docker.com/products/docker-desktop) 
 #### Inicialização
 1.  **Clone o repositório:**
     ```bash
-    git clone [[REPO](https://github.com/angelogatz/rimatur-message-web-app.git)]
+    git clone https://github.com/angelogatz/rimatur-message-web-app.git
     cd rimatur-chat-app
     ```
 
