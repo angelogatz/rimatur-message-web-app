@@ -46,9 +46,10 @@ Certifique-se de ter o [Docker](https://www.docker.com/products/docker-desktop) 
     ```
 
 2.  **Configuração de Ambiente (Backend):**
-    Crie o arquivo `.env` na pasta `server/` copiando o exemplo e insira sua chave secreta JWT.
+    Crie o arquivo `.env` na pasta `server/` copiando o exemplo e insira sua chave secreta JWT e cole dentro dele as variaveis a seguir.
     ```bash
-    cp server/.env.example server/.env
+    DATABASE_URL="postgresql://postgres:root@host.docker.internal:5432/chat_app_db?schema=public"
+    JWT_SECRET=chave_JWT
     ```
 
 3.  **Construir e Subir o Ambiente:**
