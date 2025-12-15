@@ -8,7 +8,7 @@
 
 ---
 
-### ✨ Sobre o Projeto
+### Sobre o Projeto
 
 O Web Chat App é uma solução de mensageria fullstack desenvolvida para demonstrar proficiência na criação de aplicações em tempo real, utilizando uma arquitetura robusta e distribuída com Docker.
 
@@ -20,7 +20,7 @@ O Web Chat App é uma solução de mensageria fullstack desenvolvida para demons
 
 ---
 
-### ⚙️ Tecnologias Utilizadas
+### Tecnologias Utilizadas
 
 | Categoria | Stack | Tecnologias Chave |
 | :--- | :--- | :--- |
@@ -31,7 +31,7 @@ O Web Chat App é uma solução de mensageria fullstack desenvolvida para demons
 
 ---
 
-### 🚀 Como Rodar o Projeto (Setup)
+### Como Rodar o Projeto (Setup)
 
 Este projeto utiliza **Docker Compose** para inicializar o ambiente completo com um único comando.
 
@@ -39,26 +39,26 @@ Este projeto utiliza **Docker Compose** para inicializar o ambiente completo com
 Certifique-se de ter o [Docker](https://www.docker.com/products/docker-desktop) e o [Docker Compose](https://docs.docker.com/compose/install/) instalados e rodando em sua máquina.
 
 #### Inicialização
-1.  **Clone o repositório:**
+-  **Clone o repositório:**
     ```bash
     git clone https://github.com/angelogatz/rimatur-message-web-app.git
     cd rimatur-chat-app
     ```
 
-2.  **Configuração de Ambiente (Backend):**
+-  **Configuração de Ambiente (Backend):**
     Crie o arquivo `.env` na pasta `server/` copiando o exemplo e insira sua chave secreta JWT e cole dentro dele as variaveis a seguir.
     ```bash
     DATABASE_URL="postgresql://postgres:root@host.docker.internal:5432/chat_app_db?schema=public"
     JWT_SECRET=chave_JWT
     ```
 
-3.  **Construir e Subir o Ambiente:**
+-  **Construir e Subir o Ambiente:**
     Este comando constrói as imagens e inicializa todos os serviços (Frontend, Backend, DB).
     ```bash
     docker compose up -d --build
     ```
 
-4.  **Aplicar Migrações do Banco de Dados:**
+ - **Aplicar Migrações do Banco de Dados:**
     As tabelas (User, Message) precisam ser criadas no Postgres.
     ```bash
     docker compose exec server npx prisma migrate dev --name init_tables
@@ -73,21 +73,21 @@ Aguarde alguns segundos após o último comando para que o serviço `web` inicia
 
 ### 🔑 Fluxo de Uso e Testes
 
-1.  Acesse `http://localhost:5173`.
-2.  **Registro:** Crie novos usuários usando a tela de Cadastro.
-3.  **Login:** Entre com as credenciais.
-4.  **Teste Real-Time:** Abra duas abas/janelas anônimas, logue com dois usuários diferentes (ex: Maria e Pedro), e inicie a conversa.
-5.  **Teste do Badge:** Mande mensagens para um usuário que esteja vendo outra conversa. O indicador de mensagens não lidas deve aparecer e atualizar instantaneamente.
+-  Acesse `http://localhost:5173`.
+-  **Registro:** Crie novos usuários usando a tela de Cadastro.
+-  **Login:** Entre com as credenciais.
+-  **Teste Real-Time:** Abra duas abas/janelas anônimas, logue com dois usuários diferentes (ex: Maria e Pedro), e inicie a conversa.
+-  **Teste do Badge:** Mande mensagens para um usuário que esteja vendo outra conversa. O indicador de mensagens não lidas deve aparecer e atualizar instantaneamente.
 
 ---
 
-### 🛠️ Estrutura do Código
+### Estrutura do Código
 
 rimatur-chat-app/ ├── server/ # Backend (Node/Express, JWT, Prisma, Socket.io) │ ├── src/ │ │ ├── controllers/ # Lógica de negócio (API) │ │ ├── routes/ # Definição das Rotas REST │ │ └── middlewares/ # Autenticação JWT │ └── prisma/ # Schema, Migrações ├── web/ # Frontend (React/Vite, Socket.io-client) │ ├── src/ │ │ ├── pages/ # Telas da Aplicação (Login, Chat, Register) │ │ └── vite.config.js ├── docker-compose.yml # Orquestração (Server, Web, DB) └── README.md
 
 ---
 
-### 🧑‍💻 Autor
+### Autor
 
 Angelo El Sawy
 * **LinkedIn:** [Conecte-se](https://www.linkedin.com/in/angelo-gatz-29151a200/)
