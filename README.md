@@ -81,12 +81,6 @@ Aguarde alguns segundos após o último comando para que o serviço `web` inicia
 
 ---
 
-### Estrutura do Código
-
-rimatur-chat-app/ ├── server/ # Backend (Node/Express, JWT, Prisma, Socket.io) │ ├── src/ │ │ ├── controllers/ # Lógica de negócio (API) │ │ ├── routes/ # Definição das Rotas REST │ │ └── middlewares/ # Autenticação JWT │ └── prisma/ # Schema, Migrações ├── web/ # Frontend (React/Vite, Socket.io-client) │ ├── src/ │ │ ├── pages/ # Telas da Aplicação (Login, Chat, Register) │ │ └── vite.config.js ├── docker-compose.yml # Orquestração (Server, Web, DB) └── README.md
-
----
-
 ### Autor
 
 Angelo El Sawy
