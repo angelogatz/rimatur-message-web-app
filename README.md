@@ -1,4 +1,4 @@
-# 💬 Web Chat App
+# Web Chat App
 
 ## Aplicação Fullstack de Mensagens em Tempo Real
 
@@ -71,7 +71,7 @@ Aguarde alguns segundos após o último comando para que o serviço `web` inicia
 
 ---
 
-### 🔑 Fluxo de Uso e Testes
+### Fluxo de Uso e Testes
 
 -  Acesse `http://localhost:5173`.
 -  **Registro:** Crie novos usuários usando a tela de Cadastro.
